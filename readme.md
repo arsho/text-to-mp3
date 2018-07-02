@@ -60,3 +60,12 @@ The following environment are used to develop the application:
 ### Contribute
 
 Have time and enthusiasm to contribute in this project? Give a hand to accomplish the todo list. Make a pull request. We will appreciate your support. 
+
+### LICENSE
+
+MIT
+
+<hr>
+
+<h3>Enjoy!</h3>
+<p>If you have any suggestion, please send a message to <a href="https://www.facebook.com/ars.shovon">https://www.facebook.com/ars.shovon</a></p>
