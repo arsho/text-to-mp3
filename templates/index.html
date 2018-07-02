@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="keyword"
+  content="Text to MP3, text to speech, Python gTTS, arsho, datamate.ws, datamate web solutions"/>
+  <meta name="description" content="Convert any text document to MP3 file. Download the converted file instantly or keep the file URL for later use."/>
+  <meta name="author" content="Ahmedur Rahman Shovon">
+
+  <!--Facebook Meta Data-->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Text to MP3"/>
+  <meta property="og:description" content="Convert any text document to MP3 file. Download the converted file instantly or keep the file URL for later use."/>
+  <meta property="og:url" content="https://github.com/arsho/text-to-mp3" />
+  <meta property="og:site_name" content="Text to MP3" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" media="screen">
+  <title>Text to MP3</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">
+              Convert any text document to MP3 file. Download the converted file
+              instantly or keep the file URL for later use.
+            </p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="https://www.facebook.com/DatamateWs/" class="text-white">
+                Like <i class="fas fa-thumbs-up"></i> us on Facebook <i class="fab fa-facebook"></i></a>
+              </li>
+              <li><a href="https://github.com/arsho/text-to-mp3" class="text-white">
+                Give a star <i class="fas fa-star"></i> on Github <i class="fab fa-github"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong><i class="fas fa-file-audio"></i> Text to MP3</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main role="main">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading"><i class="far fa-file-audio"></i> Text to MP3</h1>
+        <p class="lead text-muted">
+          Convert any text document to MP3 file. Download the converted file
+          instantly or keep the file URL for later use.
+        </p>
+        <p>
+          <a href="https://github.com/arsho/text-to-mp3" class="btn btn-secondary my-2"><i class="fab fa-github"></i> Source code</a>
+        </p>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          {% if data %}
+          <div class="col-md-12 col-lg-12 margin-bottom-40px">
+            <div class="card bg-light mb-3">
+              {{ data|safe }}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <form method="post">
+              <div class="form-group row">
+                <label for="input_text" class="col-sm-2 col-form-label">Input Text</label>
+                <div class="col-sm-10">
+                  <textarea required class="form-control"
+                  id="input_text" name="input_text" placeholder="Enter text here"
+                  aria-describedby="input_text_help" rows="3"></textarea>
+                  <small id="input_text_help" class="form-text text-muted">*Required. Only English is supported.</small>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="output_filename" class="col-sm-2 col-form-label">Output Filename</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="output_filename"
+                  name="output_filename"
+                  placeholder="Enter output filename here">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-10 offset-md-2">
+                  <button type="submit" class="btn btn-secondary btn-block">Convert</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="text-muted">
+    <div class="container">
+      <p>
+        Developed with <i class="fas fa-heart"></i> by <a href="https://arsho.github.io">arsho</a>
+      </p>
+    </div>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
