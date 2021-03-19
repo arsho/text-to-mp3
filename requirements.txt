@@ -8,7 +8,7 @@ gTTS==2.0.1
 gTTS-token==1.1.1
 idna==2.7
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.0
 requests==2.19.1
 six==1.11.0
